@@ -12,7 +12,7 @@ int b=0;
 
 public:
 
-friend MainClass FriendFunction( int, int);
+friend void FriendFunction(MainClass &, int, int);
 void Display() {
     cout << "a = 0 after change " << a << " , b = 0 After Change " << b << endl;
 
@@ -20,16 +20,16 @@ void Display() {
 };
 
 
- MainClass FriendFunction( int x, int y) {
+ void FriendFunction( MainClass &change, int x, int y) {
 
    
-  MainClass change;
+ 
 
   
 change.a = x;
 change.b = y;
 
-    return change;
+    
 
  }   
 
@@ -37,9 +37,12 @@ change.b = y;
 
     MainClass m1;
 
-    m1 = FriendFunction(5,6); // U can make this an user input
+    FriendFunction(m1,5,6); //Here we can add User Input Taker.
    
 m1.Display();
 
     return 0;
 }
+
+
+//Oh My God < I really Can't believe I made it and its working just fine
