@@ -12,7 +12,7 @@ int b=0;
 
 public:
 
-friend MainClass FriendFunction();
+friend void FriendFunction(MainClass &);
 void Display() {
     cout << "a = 0 after change " << a << " , b = 0 After Change " << b << endl;
 
@@ -20,16 +20,16 @@ void Display() {
 };
 
 
- MainClass FriendFunction() {
+ void FriendFunction( MainClass &change) {
 
    
-  MainClass change;
+ 
 
   
 change.a = 10;
-change.b = 20;         //U can make program to input for u 
+change.b = 20;
 
-    return change;
+    
 
  }   
 
@@ -37,7 +37,7 @@ change.b = 20;         //U can make program to input for u
 
     MainClass m1;
 
-    m1 = FriendFunction();
+    FriendFunction(m1);
    
 m1.Display();
 
